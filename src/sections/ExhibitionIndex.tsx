@@ -384,7 +384,7 @@ export default function ExhibitionIndex({ onSelect }: ExhibitionIndexProps) {
 
   return (
     <section
-      id="exhibitions"
+      id="projects"
       ref={sectionRef}
       style={{
         background: 'var(--bg-primary)',

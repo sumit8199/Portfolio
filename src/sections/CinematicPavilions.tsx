@@ -97,6 +97,7 @@ export default function CinematicPavilions() {
 
   return (
     <div
+    id="skills"
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
