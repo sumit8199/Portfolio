@@ -203,6 +203,7 @@ export const pavilionsConfig: PavilionsConfig = {
       "LLM Integration",
       "GitLab",
       "Problem Solving",
+      "LangChain"
     ],
   },
 }
@@ -213,7 +214,7 @@ export const footerConfig: FooterConfig = {
   connectLabel: "Connect",
   connectLinks: [
     { label: "GitHub", href: "https://github.com/sumit8199" },
-    { label: "LinkedIn", href: "www.linkedin.com/in/sumit-pingale-771641159" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/sumit-pingale-771641159/" },
     { label: "Email", href: "mailto:sumitpingale234@gmail.com" },
   ],
   brandName: "SP",
