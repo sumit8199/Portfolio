@@ -245,51 +245,91 @@ function ExhibitionItem({
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <button
-          onClick={() => onSelect(exhibition.slug)}
-          style={{
-            position: 'relative',
-            overflow: 'hidden',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            margin: 0,
-            textAlign: 'left',
-            cursor: 'none',
-            color: 'inherit',
-          }}
-          aria-label={`Open ${exhibition.title}`}
-        >
-          <div
-            ref={textRef}
-            className="exhibition-item-text"
+        <div>
+          <button
+            onClick={() => onSelect(exhibition.slug)}
             style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(3rem, 6vw, 6rem)',
-              textTransform: 'uppercase',
-              pointerEvents: 'none',
-              lineHeight: 1.1,
-              fontWeight: 400,
+              position: 'relative',
+              overflow: 'hidden',
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              margin: 0,
+              textAlign: 'left',
+              cursor: 'none',
+              color: 'inherit',
             }}
-          />
+            aria-label={`Open ${exhibition.title}`}
+          >
+            <div
+              ref={textRef}
+              className="exhibition-item-text"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.5rem, 5vw, 5rem)',
+                textTransform: 'uppercase',
+                pointerEvents: 'none',
+                lineHeight: 1.1,
+                fontWeight: 400,
+              }}
+            />
+            <div
+              ref={cloneRef}
+              className="exhibition-item-text"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.5rem, 5vw, 5rem)',
+                textTransform: 'uppercase',
+                pointerEvents: 'none',
+                lineHeight: 1.1,
+                fontWeight: 400,
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            />
+          </button>
           <div
-            ref={cloneRef}
-            className="exhibition-item-text"
             style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(3rem, 6vw, 6rem)',
-              textTransform: 'uppercase',
-              pointerEvents: 'none',
-              lineHeight: 1.1,
-              fontWeight: 400,
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
+              marginTop: '0.65rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.85rem',
+              flexWrap: 'wrap',
             }}
-          />
-        </button>
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                color: 'var(--text-secondary)',
+                letterSpacing: '0.04em',
+              }}
+            >
+              {exhibition.eyebrow}
+            </span>
+            {exhibition.githubUrl && (
+              <span
+                style={{
+                  fontSize: '0.62rem',
+                  padding: '0.18rem 0.55rem',
+                  borderRadius: '999px',
+                  background: '#f2f2f2',
+                  border: '1px solid #e0e0e0',
+                  color: '#444444',
+                  fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                }}
+              >
+                GitHub Repo
+              </span>
+            )}
+          </div>
+        </div>
         <span
           style={{
             fontFamily: 'var(--font-sans)',

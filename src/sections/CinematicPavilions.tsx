@@ -96,62 +96,154 @@ export default function CinematicPavilions() {
   }
 
   return (
-    <div
-    id="skills"
+    <section
+      id="skills"
       style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "2rem",
-        padding: '20px',
+        background: "var(--bg-primary)",
+        padding: "6rem 4vw 8rem",
+        position: "relative",
+        zIndex: 2,
+        borderTop: "1px solid #e5e5e5",
       }}
     >
-      {Object.entries(pavilionsConfig.skills).map(([category, skills]) => (
-        <div
-          key={category}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: "3.5rem",
+        }}
+      >
+        <span
           style={{
-            padding: "2rem",
-            background: "var(--bg-growth)",
-            borderRadius: "12px",
+            fontFamily: "var(--font-sans)",
+            fontSize: "0.7rem",
+            fontWeight: 500,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            color: "var(--text-secondary)",
           }}
         >
-          <h3
-            style={{
-              marginBottom: "1rem",
-              fontSize: "1rem",
-              fontWeight: 600,
-              color: "var(--text-primary)",
-            }}
-          >
-            {category}
-          </h3>
+          {pavilionsConfig.sectionLabel}
+        </span>
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.7rem",
+            color: "var(--text-secondary)",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Full Stack & AI Capabilities
+        </span>
+      </div>
 
-          <ul
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "1.75rem",
+        }}
+      >
+        {Object.entries(pavilionsConfig.skills).map(([category, skills]) => (
+          <div
+            key={category}
             style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
+              padding: "2.25rem 2rem",
+              background: "#fafafa",
+              border: "1px solid #eaeaea",
+              borderRadius: "8px",
               display: "flex",
-              flexWrap: "wrap",
-              gap: "0.75rem",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              transition: "border-color 0.25s ease, transform 0.25s ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "#c5c5c5";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "#eaeaea";
+              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
             }}
           >
-            {skills.map((skill: string) => (
-              <li
-                key={skill}
+            <div>
+              <div
                 style={{
-                  padding: "0.5rem 1rem",
-                  background: "var(--bg-tags)",
-                  borderRadius: "999px",
-                  fontSize: "0.9rem",
-                  color: "var(--text-primary)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: "1.5rem",
+                  paddingBottom: "0.75rem",
+                  borderBottom: "1px solid #eeeeee",
                 }}
               >
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.25rem",
+                    fontWeight: 400,
+                    letterSpacing: "-0.01em",
+                    margin: 0,
+                    color: "var(--text-primary)",
+                  }}
+                >
+                  {category}
+                </h3>
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "0.65rem",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {skills.length} skills
+                </span>
+              </div>
+
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.55rem",
+                }}
+              >
+                {skills.map((skill: string) => (
+                  <li
+                    key={skill}
+                    style={{
+                      padding: "0.45rem 0.85rem",
+                      background: "#ffffff",
+                      border: "1px solid #e2e2e2",
+                      borderRadius: "999px",
+                      fontSize: "0.75rem",
+                      fontFamily: "var(--font-mono)",
+                      color: "#222222",
+                      letterSpacing: "0.02em",
+                      transition: "all 0.15s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "#000000";
+                      (e.currentTarget as HTMLElement).style.color = "#ffffff";
+                      (e.currentTarget as HTMLElement).style.borderColor = "#000000";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.background = "#ffffff";
+                      (e.currentTarget as HTMLElement).style.color = "#222222";
+                      (e.currentTarget as HTMLElement).style.borderColor = "#e2e2e2";
+                    }}
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

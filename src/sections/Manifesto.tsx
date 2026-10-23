@@ -67,6 +67,7 @@ export default function Manifesto() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       style={{
         background: 'var(--bg-primary)',
